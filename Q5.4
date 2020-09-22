@@ -14,11 +14,16 @@ struct studentdat{
     struct DOB dateofbirth;
 };
     
-
+void display(studentdat std1){
+        cout << "Displaying Student Information" << endl;
+    cout << "Student Name: " << std1.studentname << endl;
+    cout << "Student Roll Number: " << std1.rollno << endl;
+    cout << "Student Semester: " << std1.semester << endl;
+    cout << "Student Date of Birth: " << std1.dateofbirth.date << " " << std1.dateofbirth.month << " " << std1.dateofbirth.year << " " << endl;
+}
 int main() {
-
     studentdat std1;
-    cout <<"Enter the details" << endl;
+    cout <<"Enter the details "<< endl;
     cout << "Enter student name: ";
     cin >> std1.studentname;
     cout << "Enter student rollno: ";
@@ -30,13 +35,8 @@ int main() {
     cout << "Enter the month of birth: " << endl;
     cin >> std1.dateofbirth.month;
     cout << "Enter the year of birth: " << endl;
-    cin >> std1.dateofbirth.year;
+    cin >> std1.dateofbirth.year;  
     
-    cout << "Displaying Student Information" << endl;
-    cout << "Student Name: " << std1.studentname << endl;
-    cout << "Student Roll Number: " << std1.rollno << endl;
-    cout << "Student Semester: " << std1.semester << endl;
-    cout << "Student Date of Birth: " << std1.dateofbirth.date << " " << std1.dateofbirth.month << " " << std1.dateofbirth.year << " " << endl;
-    
-    
+    display(std1);
     return 0;
+}
