@@ -1,0 +1,42 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+struct DOB{
+    int date;
+    char month[20];
+    int year;
+};
+struct studentdat{
+    char studentname[20];
+    int rollno;
+    int semester;
+    struct DOB dateofbirth;
+};
+    
+
+int main() {
+
+    studentdat std1;
+    cout <<"Enter the details" << endl;
+    cout << "Enter student name: ";
+    cin >> std1.studentname;
+    cout << "Enter student rollno: ";
+    cin >> std1.rollno;
+    cout << "Enter semester number: ";
+    cin >> std1.semester;
+    cout << "Enter the date of birth: " << endl;
+    cin >> std1.dateofbirth.date;
+    cout << "Enter the month of birth: " << endl;
+    cin >> std1.dateofbirth.month;
+    cout << "Enter the year of birth: " << endl;
+    cin >> std1.dateofbirth.year;
+    
+    cout << "Displaying Student Information" << endl;
+    cout << "Student Name: " << std1.studentname << endl;
+    cout << "Student Roll Number: " << std1.rollno << endl;
+    cout << "Student Semester: " << std1.semester << endl;
+    cout << "Student Date of Birth: " << std1.dateofbirth.date << " " << std1.dateofbirth.month << " " << std1.dateofbirth.year << " " << endl;
+    
+    
+    return 0;
