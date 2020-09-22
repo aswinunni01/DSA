@@ -1,0 +1,61 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+struct DOB{
+    int date;
+    char month[20];
+    int year;
+};
+struct studentdat{
+    char name[20];
+    int rollno;
+    int semester;
+    struct DOB dateofbirth;
+};
+    
+void display(studentdat std1){
+        cout << "Displaying Student Information" << endl;
+    cout << "Student Name: " << std1.name << endl;
+    cout << "Student Roll Number: " << std1.rollno << endl;
+    cout << "Student Semester: " << std1.semester << endl;
+    cout << "Student Date of Birth: " << std1.dateofbirth.date << " " << std1.dateofbirth.month << " " << std1.dateofbirth.year << " " << endl;
+}
+int main() {
+    studentdat stud[10];
+    for(int i=0; i <10;i++){
+        cout <<"Enter the details for student "<< i+1<< endl;
+    cout << "Enter student name: ";
+    cin >> stud[i].name;
+    cout << "Enter student rollno: ";
+    cin >> stud[i].rollno;
+    cout << "Enter semester number: ";
+    cin >> stud[i].semester;
+    cout << "Enter the date of birth: " << endl;
+    cin >> stud[i].dateofbirth.date;
+    cout << "Enter the month of birth: " << endl;
+    cin >> stud[i].dateofbirth.month;
+    cout << "Enter the year of birth: " << endl;
+    cin >> stud[i].dateofbirth.year;  
+    
+        
+    }
+    studentdat temp;
+    for (int i=0;i<9;i++){
+        for (int j=i+1;j<10;j++){
+            if(strcmp(stud[j].name,stud[i].name)<0){
+                temp = stud[i];
+                stud[i]=stud[j];
+                stud[j] = temp;
+            }
+        }
+    }
+    cout << "Student Names: " << endl;
+    for(int i=0;i<10;i++){
+  
+       cout  << stud[i].name << " , ";
+    }
+
+    return 0;
+}
