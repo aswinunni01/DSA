@@ -1,0 +1,57 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+struct studentdat{
+    char name[20];
+    int rollno;
+    int mark[1];
+    char grade = 'M';
+};
+void readmarks(studentdat* stud){
+    for (int i=0;i<1;i++){
+        cout << "Enter marks of subject "<< i+1 <<endl;
+        cin >> stud->mark[i];
+    }
+}
+void calculategrade(studentdat* stud){
+    int total_mark = 0;
+    for (int i =0; i<1;i++){
+        total_mark = total_mark + stud->mark[i];
+    }
+    cout <<"Total Mark: "<<total_mark <<endl;
+    int perc = int(total_mark/10);
+    switch(perc){
+        case(10): stud->grade='A';break;
+        case(9): stud->grade='A'; break;
+        case(8): stud->grade='A';break;
+        case(7): stud->grade='B';break;
+        case(6): stud->grade='B';break;
+        case(5): stud->grade='C';break;
+        case(4): stud->grade='C';break;
+        case(3): stud->grade='F';break;
+        default: stud->grade='F'; break;
+    }
+}
+
+
+int main() {
+    studentdat stud[5];
+    for(int i=0;i<5;i++){
+        
+    cout <<  "Enter Student name: ";
+    cin >> stud[i].name;
+    //cout <<"Enter student roll number: ";
+    //cin >>stud[i].rollno;
+    readmarks(&stud[i]);
+    calculategrade(&stud[i]);
+    }
+    cout << "Toppers of the class"<<endl;
+    for(int i=0;i<5;i++){
+        if(stud[i].grade=='A'){
+            cout << stud[i].name<<endl;
+        }
+    }
+    return 0;
+}
