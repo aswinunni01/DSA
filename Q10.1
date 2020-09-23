@@ -1,0 +1,28 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Stud_perf{
+    public:
+    float cgpa;
+    int mark1;
+    int mark2;
+    
+    Stud_perf(float gpa, int m1, int m2){
+        cgpa = gpa;
+        mark1=m1;
+        mark2=m2;
+        
+    }
+    void display(){
+        cout << "CGPA is: " << cgpa << endl;
+    }
+    
+};
+
+int main(){
+    
+    Stud_perf s1(8.7,85,69);
+    s1.display();
+}
