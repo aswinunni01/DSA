@@ -1,0 +1,30 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+class Cylinder{
+    public:
+        double radius;
+        double height;
+    Cylinder(double r, double h){
+        radius = r;
+        height = h;
+        
+    }
+    void area(){
+        float ar = M_PI * radius * radius;
+        cout << "Area is: " << ar << endl;
+    }
+    
+    void surfacear(){
+        float surfar = 2*M_PI*radius*height + 2*M_PI*radius*radius;
+        cout << "Surface area is: " << surfar <<endl;
+    }
+};
+int main() {
+    Cylinder c1(5.25,2.54);
+    c1.area();
+    c1.surfacear();
+    return 0;
+}
