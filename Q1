@@ -1,0 +1,82 @@
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+class Warehouse{
+   private:
+        int p1=0;
+        int p2=0;
+        int p3=0;
+   public:
+        int cp1=0;
+        int cp2=0;
+        int cp3=0;
+        int total_amount=0;
+        int total_items=0;
+        int target=0;
+        
+        Warehouse(int c1, int c2, int c3, int tgt){
+            cp1 = c1;
+            cp2 = c2;
+            cp3 = c3;
+            target = tgt;
+        }
+        void sell_item(int s){
+            switch(s){
+                
+            case(1):
+            p1++;
+            total_items++;
+            total_amount= total_amount + cp1; break;
+            case(2):
+            p2++;
+            total_items++;
+            total_amount= total_amount + cp2; break;
+            case(3):
+            p3++;
+            total_items++;
+            total_amount= total_amount + cp3; break;
+            default:
+                cout<< "\nInvalid item";
+            }
+        }
+            
+        void show_total_sales(){
+            cout << "\nTotal Sales amount for the month is: "<<total_amount;
+            cout << "\nTotal number of peripherals sold is: "<< total_items;
+        }
+        void show_peripheral_sales(int s){
+            switch(s){
+                case(1):
+                    cout << "\nYour total sales of item p1 is: "<< p1;break;
+                case(2):
+                    cout << "\nYour total sales of item p2 is: "<<p2;break;
+                case(3):
+                    cout << "\nYour total sales of item p3 is: "<< p3;break;
+            
+            }
+        }
+        void check_target_reached(){
+            if(total_amount >= target){
+                cout << "\nWell Done! You have completed your monthly target!";
+            }
+            if(total_amount>target){
+                cout<< "\nYou have exceeded your target by "<< total_amount-target << " Good Job!";
+            }
+            else{
+                cout << "\nYou still need to sell "<< target-total_amount <<" Rs to meet your monthly target. Good Luck!";
+            }
+        }
+};
+int main() {
+    Warehouse w1(10,20,15,500);
+    vector<int> items_sold{1,2,3,1,3,2,3,2,1,3,2,3,2,2,2,1,3,2,1,1};
+    for(int i=0;i<items_sold.size(); i++){
+        w1.sell_item(items_sold[i]);
+    }
+    w1.show_total_sales();
+    w1.check_target_reached();
+    w1.show_peripheral_sales(2);
+    
+    return 0;
+}
