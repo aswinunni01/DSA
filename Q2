@@ -1,0 +1,44 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+class Employee{
+    public:
+    string name;
+    int emp_id=0;
+    int salary=0;
+    int leaves=0;
+    int max_leaves=10;
+    int years_of_exp=0;
+    Employee(string nme, int empid, int slry){
+        name = nme;
+        emp_id = empid;
+        salary = slry;
+    }
+    void take_leave(int n){
+        if(leaves>=max_leaves){
+            cout << "\nSorry but you have exhausted your leaves for this year.";
+        }
+        else{
+            leaves = leaves + n;
+            cout << "\nYou have applied for "<< n << " days of leave.";
+            cout << "\nYou have "<<max_leaves-leaves << " days of leaves left.";
+        }
+    }
+    void new_year(){
+        years_of_exp++;
+        salary = salary + (0.02*salary);
+        leaves=0;
+    }
+    
+};
+
+int main(){
+    Employee e1("Aswin", 2104, 50000);
+    
+    e1.take_leave(5);
+    e1.new_year();
+    
+    cout << "\nMy new salary after 1 year of experience is "<<e1.salary;
+    
+    
+}
